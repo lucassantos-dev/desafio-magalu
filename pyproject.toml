@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "desafio-magalu"
+version = "0.1.0"
+description = ""
+authors = ["lucassantos-dev <jl.lucassantos098@gmail.com>"]
+package-mode = false
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+python-dotenv = "^1.0.1"
+mysqlclient = "^2.2.4"
+djangorestframework = "^3.15.2"
+django-filter = "^24.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
