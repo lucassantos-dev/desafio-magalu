@@ -27,7 +27,8 @@ class Notification(models.Model):
     notification_id = models.UUIDField(
         primary_key=True, default=uuid.uuid4, editable=False
     )
-    local_date_time = models.DateTimeField()
+    local_date_time = models.DateTimeField(null=False, blank=False)
     destination = models.CharField(max_length=255)
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
+    message = models.CharField(max_length=255, null=True, blank=True)

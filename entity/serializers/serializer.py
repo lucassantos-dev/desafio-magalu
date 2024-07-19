@@ -15,7 +15,13 @@ class StatusSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class NotificationSerializer(serializers.Serializer):
+class NotificationSerializer(serializers.ModelSerializer):
+    channel = serializers.SlugRelatedField(slug_field='channel_id', queryset=Channel.objects.all())
+    status = serializers.SlugRelatedField(slug_field='status_id', queryset=Status.objects.all())
+
     class Meta:
         model = Notification
         fields = "__all__"
+
+    def create(self, validated_data):
+        return Notification.objects.create(**validated_data)
